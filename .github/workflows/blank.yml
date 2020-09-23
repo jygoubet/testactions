@@ -1,0 +1,27 @@
+
+
+name: CI
+
+
+on:
+  push:
+    branches: [ master ]
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: SCP
+        uses: appleboy/scp-action@master
+        with:
+          host: "51.68.79.89"
+          username: "ubuntu"
+          port: "51855"
+          key: ${{ secrets.PP_KEY }}
+          source: "README.md"
+          target: "/tmp/"

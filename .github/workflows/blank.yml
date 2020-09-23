@@ -14,6 +14,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        
+      - name: LOG
+        run: echo ${{ secrets.PP_KEY }}
 
       # Runs a single command using the runners shell
       - name: SCP
